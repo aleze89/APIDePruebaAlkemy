@@ -1,3 +1,4 @@
+using MiAPIDeAlkemy.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,12 @@ namespace MiAPIDeAlkemy
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MiAPIDeAlkemy", Version = "v1" });
             });
+
+            services.AddDbContextPool<MiAPIContext>((services, options) =>
+           {
+               options.UseInternalServiceProvider(services);
+               options.use
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

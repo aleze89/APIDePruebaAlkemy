@@ -7,5 +7,10 @@ namespace MiAPIDeAlkemy.Entities
 {
     public class Continent
     {
+        public int Id { get; set; }
+        public string Image { get; set; }
+        public string Denomination { get; set; }
+      
+        public ICollection<City> Cities { get; set; }
     }
 }
