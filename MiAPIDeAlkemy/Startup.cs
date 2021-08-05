@@ -34,11 +34,11 @@ namespace MiAPIDeAlkemy
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MiAPIDeAlkemy", Version = "v1" });
             });
-
+            services.AddEntityFrameworkSqlServer();
             services.AddDbContextPool<MiAPIContext>((services, options) =>
            {
                options.UseInternalServiceProvider(services);
-               options.UseSqlServer();
+               options.UseSqlServer(Configuration.GetConnectionString("ChallengeConnectionString"));
            });
         }
 
