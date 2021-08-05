@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MiAPIDeAlkemy
 {
@@ -37,7 +38,7 @@ namespace MiAPIDeAlkemy
             services.AddDbContextPool<MiAPIContext>((services, options) =>
            {
                options.UseInternalServiceProvider(services);
-               options.use
+               options.UseSqlServer();
            });
         }
 
